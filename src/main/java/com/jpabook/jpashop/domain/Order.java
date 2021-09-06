@@ -3,6 +3,9 @@ package com.jpabook.jpashop.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -17,6 +20,15 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    private Delivery delivery;
+
+    private LocalDateTime orderDate; // 주문 시간 (hibernate 지원)
+
+    private OrderStatus status; // 주문상태 [ORDER, CANCEL]
 
 
 }
