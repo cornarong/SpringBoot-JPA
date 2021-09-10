@@ -1,0 +1,23 @@
+
+# 스프링부트에서는 별도의  설정이 없으면 메모리 모드로 돌린다. 따라서 아래 주석해도 문제 없이 실행된다.
+
+#Spring:
+#  datasource:
+#    url: jdbc:h2:mem:test # 메모리 모드 동작
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop # 마지막에 drop해준다.
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        open-in-view: false
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
