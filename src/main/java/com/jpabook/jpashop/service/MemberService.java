@@ -33,15 +33,16 @@ public class MemberService {
      */
     @Transactional(readOnly = false)
     public Long join(Member member){
-        validateDuplicateMemeber(member); // 중복회원 검증
+        validateDuplicateMember(member); // 중복회원 검증
         memberRepository.save(member);
         return member.getId();
     }
 
-    private void validateDuplicateMemeber(Member member) {
+    private void validateDuplicateMember(Member member) {
         // Exception
         List<Member> findMembers = memberRepository.findByName(member.getName());
         if(!findMembers.isEmpty()){
+            System.out.println("여기탄다~");
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }

@@ -45,13 +45,13 @@ class MemberServiceTest {
         member2.setName("Namkung");
         //When
         memberService.join(member1);
-        // 밑에
         try {
             memberService.join(member2); // 여기서 예외가 발생해야 한다.
         }catch (IllegalStateException e){
+            System.out.println("aaaaaaaa");
             return;
         }
         //Then
-        AssertionErrors.fail("예외가 발생해야 한다. 여기까지 오면 안된다.");
+        AssertionErrors.fail("위에서 return 해야 한다. 여기까지 오면 안된다.");
     }
 }

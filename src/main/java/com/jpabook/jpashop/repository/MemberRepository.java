@@ -23,12 +23,18 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
 
+    /**
+     *  회원 전체 조회
+     */
     public List<Member> findAll(){ // jpql에서 from의 대상이 table이 아닌 entity가 된다.
         List<Member> resultList = em.createQuery("select m from Member m", Member.class)
                 .getResultList();
         return resultList;
     }
 
+    /**
+     *  회원 단건 조회 (이름, 회원중복 확인 시 사용)
+     */
     public List<Member> findByName(String name){
         List<Member> resultList = em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)

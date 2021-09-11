@@ -1,6 +1,7 @@
 package com.jpabook.jpashop.domain.item;
 
 import com.jpabook.jpashop.domain.Category;
+import com.jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items") // 다대다 테스트용
     private List<Category> categories = new ArrayList<>();
 
-    //== 비즈니스 로직 ==//
+    //== 비즈니스 로직 ==// - 객체 지향에 가깝게 직접 엔티디에 설계함으로써 관리하기에도 편한다.
     /**
      * stock(재고) 증가
      */
@@ -40,6 +41,7 @@ public abstract class Item {
         if(restStock < 0){
             throw new NotEnoughStockException("need more stock");
         }
+        this.stockQuantity = restStock;
     }
 
 }
