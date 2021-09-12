@@ -23,11 +23,10 @@ class MemberServiceTest {
     MemberRepository memberRepository;
 
     @Test
-    @Rollback(false)
     void 회원가입() throws Exception {
         //Given 이렇게 주어졌을 떄
         Member member = new Member();
-        member.setName("Namkung");
+        member.setName("Chan Namkung");
         //When 이렇게 하면
         Long saveId = memberService.join(member);
         //Then 이렇게 되야된다.

@@ -23,10 +23,9 @@ public class ItemService {
      * @return
      */
     @Transactional(readOnly = false)
-    public void saveItem(Item item){
-        //(item);
+    public Long saveItem(Item item){
         itemRepository.save(item);
-        //return item.getId();
+        return item.getId();
     }
 
 /*    private void validateDuplicateItem(Item item) {

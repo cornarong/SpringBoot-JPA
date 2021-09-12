@@ -22,17 +22,19 @@ class ItemServiceTest {
     @Autowired
     ItemService itemService;
 
-/*    @Test
-    @Rollback(false)
+    @Test
     void 아이템등록() throws Exception {
         //Given
         Book book = new Book();
         book.setName("Spring");
+        book.setPrice(10000);
         //When
-        Long saveId = itemService.saveItem(book);
+        Long itemId = itemService.saveItem(book);
+        Item item = itemRepository.findOne(itemId);
         //Then
-        Assertions.assertEquals(book, itemRepository.findOne(saveId));
-    }*/
+        Assertions.assertEquals(item.getName(), "Spring");
+        Assertions.assertEquals(item.getPrice(), 10000);
+    }
 
 /*    @Test
     void 중복_아이템_예외() throws Exception {

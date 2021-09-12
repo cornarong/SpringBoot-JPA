@@ -42,7 +42,6 @@ public class MemberService {
         // Exception
         List<Member> findMembers = memberRepository.findByName(member.getName());
         if(!findMembers.isEmpty()){
-            System.out.println("여기탄다~");
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
