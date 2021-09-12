@@ -48,7 +48,6 @@ class MemberServiceTest {
         try {
             memberService.join(member2); // 여기서 예외가 발생해야 한다.
         }catch (IllegalStateException e){
-            System.out.println("aaaaaaaa");
             return;
         }
         //Then
