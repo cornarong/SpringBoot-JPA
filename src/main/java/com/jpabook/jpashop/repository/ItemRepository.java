@@ -48,9 +48,4 @@ public class ItemRepository {
                 .getResultList();
         return resultList;
     }
-
-
-
-
-
 }
