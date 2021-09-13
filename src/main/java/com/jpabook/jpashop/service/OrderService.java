@@ -50,6 +50,11 @@ public class OrderService {
         order.cancel();
     }
 
+    // JPA에서 동적쿼리를 어떻게 해결해야 하는가.
+
+    /**
+     * 주문 검색
+     */
     // 검색 (차후 개발, 잠시 보류)
     /*public List<Order> findOrder(OrderSearch orderSearch){
         return orderRepository.findAll(orderSearch);
