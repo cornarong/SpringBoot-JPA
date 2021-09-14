@@ -2,10 +2,12 @@ package com.jpabook.jpashop.controller;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotEmpty;
+
 @Data
 public class MemberForm {
 
-//    @NotEmpty
+    @NotEmpty(message = "회원 이름은 필수 입니다.")
     private String name;
 
     private String city;
