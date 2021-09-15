@@ -1,5 +1,6 @@
 package com.jpabook.jpashop.controller;
 
+import com.jpabook.jpashop.Form.MemberForm;
 import com.jpabook.jpashop.domain.Address;
 import com.jpabook.jpashop.domain.Member;
 import com.jpabook.jpashop.service.MemberService;
@@ -49,6 +50,4 @@ public class MemberController {
         model.addAttribute("members", members);
         return "members/memberList";
     }
-
-
 }
