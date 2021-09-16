@@ -42,7 +42,7 @@ public class Order {
         member.getOrder().add(this);
     }
 
-    public void addOrderitem(OrderItem orderItem){
+    public void addOrderItem(OrderItem orderItem){
         orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
@@ -58,7 +58,7 @@ public class Order {
         order.setMember(member);
         order.setDelivery(delivery);
         for(OrderItem orderItem : orderItems){
-            order.addOrderitem(orderItem);
+            order.addOrderItem(orderItem);
         }
         order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDateTime.now());
