@@ -66,16 +66,12 @@ public class ItemController {
         return "/items/updateItemForm";
     }
 
+    // * 엔티티를 변경할 때는 항상 변경 감지를 사용하세요
+    // * 컨트롤러에서 어설프게 엔티티를 생성하지 마세요.
     @PostMapping("/items/{itemId}/edit")
-    public String updateItem(@PathVariable("itemId") Long itemId, @ModelAttribute("form") BookForm bookForm){
-        Book book = new Book();
-        book.setId(bookForm.getId());
-        book.setName(bookForm.getName());
-        book.setPrice(bookForm.getPrice());
-        book.setStockQuantity(bookForm.getStockQuantity());
-        book.setAuthor(bookForm.getAuthor());
-        book.setIsbn(bookForm.getIsbn());
-        itemService.saveItem(book);
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm bookForm){
+        // 트랜잭션이 있는 서비스 계층에 식별자( id )와 변경할 데이터를 명확하게 전달하자.
+        itemService.updateItem(itemId, bookForm.getName(), bookForm.getPrice(), bookForm.getStockQuantity());
 
         return "redirect:/items";
     }
